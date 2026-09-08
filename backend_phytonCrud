@@ -1,0 +1,93 @@
+class empleado:
+    # atributos de clase
+    nombre = ""
+    cargo = ""
+    sueldo = 0.0
+
+    def __init__(self, nombre, cargo, sueldo):
+        self.nombre = nombre
+        self.cargo = cargo
+        self.sueldo = sueldo
+
+    def ver(self):
+        datos = f"\n nombre: {self.nombre}"
+        datos += f"\n cargo: {self.cargo}"
+        datos += f"\n sueldo: {self.sueldo}"
+        return datos
+
+    def set_nombre(self, nombre):
+        self.nombre = nombre
+
+    def set_cargo(self, cargo):
+        self.cargo = cargo
+
+    def set_sueldo(self, sueldo):
+        self.sueldo = sueldo
+
+    def leer_nombre(self):
+        return self.nombre
+
+    def leer_cargo(self):
+        return self.cargo
+
+    def leer_sueldo(self):
+        return self.sueldo
+
+
+empleados = []
+
+
+# crear un nuevo empleado
+def agregar_empleado(nombre, cargo, sueldo):
+    nuevo_empleado = empleado(nombre, cargo, sueldo)
+    empleados.append(nuevo_empleado)
+
+
+# mostrar los empleados registrados
+def mostrar_empleados():
+    for i in range(len(empleados)):
+        print("\nEmpleado:", i)
+        print(empleados[i].ver())
+
+
+# actualizar
+def editar_empleado(indice, nombre, cargo, sueldo):
+    empleados[indice].set_nombre(nombre)
+    empleados[indice].set_cargo(cargo)
+    empleados[indice].set_sueldo(sueldo)
+
+
+# borrar empleado
+def borrar_empleado(indice):
+    empleados.pop(indice)
+
+
+# AGREGAR EMPLEADOS
+agregar_empleado("Sara P", "Director", 300000)
+agregar_empleado("Daniela L", "Contador", 40000)
+agregar_empleado("Juan sanchez", "Secretario", 200000)
+agregar_empleado("Carlos", "Administrador", 350000)
+agregar_empleado("Maria", "Asistente", 180000)
+
+
+# mostrar
+print("empleados")
+mostrar_empleados()
+
+
+# editar
+editar_empleado(0, "Sara Poveda", "Gerente", 500000)
+editar_empleado(2, "Juan Perez", "Jefe", 450000)
+
+print("\neditar")
+mostrar_empleados()
+#borrar
+borrar_empleado(1)
+
+print("\nborrar")
+mostrar_empleados()
+
+
+    
+    
+    
