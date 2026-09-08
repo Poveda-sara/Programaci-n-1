@@ -1,0 +1,102 @@
+'''
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+'''
+# Menú en Python 
+usuarios = [] # guarda la cantidad de usuarios registrados 
+
+#menú en Python
+while True:
+    print("--------Menú--------")
+    print("1 : Crear usuario ")
+    print("2: Mostrar usuarios")
+    print("3: Editar usuario")
+    print("4: Eliminar usuario")
+    print("5: Terminar")
+    opcion = input("Seleccione una opción:")
+
+    # opciones del menú
+    #se piden datos y se asignan a variables para guardar los datos del usuario 
+    # compara si el numero/opción que elija el usuario es igual a 1 en caso de que si se inicia este if en caso de que no el programa sige comparando con otras opciones hasta que encuentre a su igual
+
+    if opcion == "1":
+        nombre = input("Ingrese su nombre:")
+        edad = input("Ingrese la edad:")
+        cargo = input("Ingrese el cargo: ")
+        sueldo = input("Ingrese su sueldo:")
+
+        #variables de los datos solicitados 
+        usuario = { # Guarda usuario 
+            "nombre": nombre,
+            "edad": edad,
+            "cargo": cargo,
+            "sueldo": sueldo
+        }
+        # se agrega el usuario a la lista de usuarios 
+        usuarios.append(usuario)
+        print("Creado correctamente :D")
+
+    #se muestran los usuarios registrados 
+    elif opcion == "2":
+        print("-----Usuarios-----")
+
+        if len(usuarios) == 0: # Compara si la variable es igual a 0 y si es verdadero significa que ningun usuario esta registrado 
+            print("Primero crea un usuario")
+        else: # en caso de que la variable no sea igual a 0 mostrara los datos de todos los usuarios registrados
+            # Se recorren todos los usuarios registrados para mostrar sus datos
+            for i, usuario in enumerate(usuarios): # la i sirve para determinar la posicion de cada usuario registrado 
+                # enumera cada usuario registrado para que se vea mas organizado 
+                print(i + 1, usuario["nombre"], usuario["edad"],
+                      usuario["cargo"], usuario["sueldo"])
+
+    elif opcion == "3":
+        if len(usuarios) == 0: # se determina cuantos usuarios hay en la lista 
+            print("Crea primero un usuario")
+        else:
+            for i, usuario in enumerate(usuarios):
+                print(i + 1, usuario["nombre"], usuario["edad"], usuario["cargo"], usuario["sueldo"])
+
+            numero = int(input("ingrese el número de usuario"))
+
+            if numero >= 1 and numero <= len(usuarios): #verifica que el número ingresado corresponda a un usuario registrado
+                usuarios[numero - 1]["nombre"] = input("Ingrese el nuevo nombre:")
+                usuarios[numero - 1]["edad"] = input("ingrese la nueva edad:")
+                usuarios[numero - 1]["cargo"] = input("Ingrese el nuevo cargo:")
+                usuarios[numero - 1]["sueldo"] = input("Ingrese el sueldo nuevo:")
+
+                print("usuario Actualizado correctamente :D")
+            else:
+                print("Ese usuario no esta registrado")
+
+    # Borrar usuario 
+    elif opcion == "4":
+        if len(usuarios) == 0:
+            print("Primero Crea un usuario")
+        else:
+            for i, usuario in enumerate(usuarios):
+                print(i + 1, usuario["nombre"], usuario["edad"], usuario["cargo"], usuario["sueldo"])
+
+            numero = int(input("Ingrese el número del usuario:"))
+
+            if numero >= 1 and numero <= len(usuarios):
+                del usuarios[numero - 1]
+                print("Usuario eliminado correctamente :D")
+            else:
+                print("Usuario no encontrado")
+
+    #Terminar el programa 
+    elif opcion == "5":
+        print("programa terminado")
+        break
+
+    else:
+        print("opcion no valida")
+   
+        
+        
+    
+    
